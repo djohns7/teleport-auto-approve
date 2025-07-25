@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Teleport access check every 10 seconds
+
+[Timer]
+OnBootSec=15
+OnUnitActiveSec=10s
+AccuracySec=1s
+Unit=teleport-access-check.service
+
+[Install]
+WantedBy=timers.target

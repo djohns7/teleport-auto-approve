@@ -1,0 +1,17 @@
+[Unit]
+Description=Teleport Machine ID Bot
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/tbot start \
+  --data-dir=/var/lib/teleport/bot \
+  --token=redacted \
+  --destination-dir=/home/teleport-bot \
+  --join-method=token \
+  --proxy-server=danjdemo.teleport.sh:443
+User=teleport-bot
+Group=teleport-bot
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

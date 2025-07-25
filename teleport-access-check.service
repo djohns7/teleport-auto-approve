@@ -1,0 +1,7 @@
+[Unit]
+Description=Teleport access review and lock automation
+
+[Service]
+Type=oneshot
+User=teleport-bot
+ExecStart=/home/teleport-bot/teleport-auto-approve.sh

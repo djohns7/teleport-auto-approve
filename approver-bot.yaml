@@ -1,0 +1,51 @@
+kind: role
+metadata:
+  name: approver-bot
+  revision: 82ffeafc-6070-49a1-9696-de0b914cde45
+spec:
+  allow:
+    review_requests:
+      roles:
+      - contractor-admin
+    rules:
+    - resources:
+      - access_request
+      verbs:
+      - list
+      - read
+      - create
+      - delete
+    - resources:
+      - session
+      verbs:
+      - list
+      - read
+      - update
+    - resources:
+      - lock
+      verbs:
+      - list
+      - create
+      - update
+      - read
+  deny: {}
+  options:
+    cert_format: standard
+    create_db_user: false
+    create_desktop_user: false
+    desktop_clipboard: true
+    desktop_directory_sharing: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    idp:
+      saml:
+        enabled: true
+    max_session_ttl: 30h0m0s
+    pin_source_ip: false
+    record_session:
+      default: best_effort
+      desktop: true
+    ssh_file_copy: true
+version: v7
